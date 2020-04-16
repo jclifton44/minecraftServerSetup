@@ -1,9 +1,9 @@
 cd /opt/minecraftServer/bedrock-server
 DATE_EPOCH=$(date +%s)
 BACKUP_DIR="/opt/minecraftServer/mcWorldData/"
-ps ax | grep "bedrock_server" 
 echo $?
 echo "VALUE"
+ps ax | grep "bedrock_server" | grep -v grep
 if [ "$?" -ne 0 ];
 then
 	echo "NOT RUNNING."
