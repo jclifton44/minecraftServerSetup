@@ -1,16 +1,19 @@
-wget 'https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip'
+UPDATED_VERSION="1.14.60.5"
+echo "ca_directory=/etc/ssl/certs" >> /etc/wgetrc
+wget "https://minecraft.azureedge.net/bin-linux/bedrock-server-${UPDATED_VERSION}.zip"
 HOSTED_BACKUP="/var/www/html/hosted/"
+cp checkServicesMC.sh /usr/bin/checkServicesMC
 mkdir /opt/minecraftServer
+cp bedrock-server-${UPDATED_VERSION}.zip /opt/minecraftServer/
 cd /opt/minecraftServer
 mkdir bedrock-server
 mkdir /mcWorldData
-cp bedrock-server-1.14.32.1.zip bedrock-server/
+cp bedrock-server-${UPDATED_VERSION}.zip bedrock-server/
 cd bedrock-server
-unzip 'bedrock-server-1.14.32.1.zip'
+unzip "bedrock-server-${UPDATED_VERSION}.zip"
 cd ../
 ln -s /opt/minecraftServer/mcWorldData ${HOSTED_BACKUP}
 cp -r bedrock-server /opt/minecraftServer/
-cp checkServicesMC.sh /usr/bin/checkServicesMC
 cat /etc/crontab | grep checkServicesMC
 if [ $? -ne '0' ];
 then

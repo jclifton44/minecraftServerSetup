@@ -17,6 +17,7 @@ else
 	rm -rf ${BACKUP_DIR}${PID_VALUE}/*
 	tar -czvf ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar /opt/minecraftServer/bedrock-server/worlds
 	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}${PID_VALUE}/
+	rm ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar
 fi
 exit
 
