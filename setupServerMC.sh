@@ -3,6 +3,7 @@ echo "ca_directory=/etc/ssl/certs" >> /etc/wgetrc
 wget "https://minecraft.azureedge.net/bin-linux/bedrock-server-${UPDATED_VERSION}.zip"
 HOSTED_BACKUP="/var/www/html/hosted/"
 cp checkServicesMC.sh /usr/bin/checkServicesMC
+cp dailyRestoreMC.sh /usr/bin/dailyRestoreMC
 mkdir /opt/minecraftServer
 cp bedrock-server-${UPDATED_VERSION}.zip /opt/minecraftServer/
 cd /opt/minecraftServer
@@ -19,4 +20,13 @@ if [ $? -ne '0' ];
 then
 echo "*/5 * * * *       root    checkServicesMC" >> /etc/crontab
 fi
+
+
+
+cat /etc/crontab | grep "dailyRestoreMC"
+if [ $? -ne '0' ];
+then
+echo "0 8 * * *       root    dailyRestoreMC" >> /etc/crontab
+fi
+
 

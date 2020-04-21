@@ -24,4 +24,22 @@ ln -s /usr/local/bin/openssl /usr/bin/openssl
 ldconfig
 cd ../
 wget 'https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip'
-unzip 'bedrock-server-1.14.32.1.zip'
+mkdir /opt/minecraftServer
+unzip 'bedrock-server-1.14.32.1.zip' 
+cp -r bedrock-server-1.14.32.1 /opt/minecraftServer/
+cp checkServicesMC.sh /usr/bin/checkServicesMC
+cp dailyRestoreMC.sh /usr/bin/dailyRestoreMC
+cat /etc/crontab | grep checkServicesMC
+if [ $? -ne '0' ];
+then
+echo "*/5 * * * *	root	checkServicesMC" >> /etc/crontab
+fi
+
+cat /etc/crontab | grep dailyRestoreMC
+if [ $? -ne '0' ];
+then
+echo "0 8 * * *	root	dailyRestoreMC" >> /etc/crontab
+fi
+
+
+
