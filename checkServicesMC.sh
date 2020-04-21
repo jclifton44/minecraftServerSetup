@@ -11,6 +11,7 @@ then
 	echo "STARTING..."
 	cd /opt/minecraftServer/bedrock-server
 	./bedrock_server&
+	echo $(date +%s) >> uptime
 else 
 	#server running
 	PID_VALUE=$(ps -ax | grep bedrock_server | awk {'print$1'} | head -n 1)

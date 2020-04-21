@@ -1,5 +1,6 @@
 UPDATED_VERSION="1.14.60.5"
 echo "ca_directory=/etc/ssl/certs" >> /etc/wgetrc
+rm bedrock-server*.zip
 wget "https://minecraft.azureedge.net/bin-linux/bedrock-server-${UPDATED_VERSION}.zip"
 HOSTED_BACKUP="/var/www/html/hosted/"
 cp checkServicesMC.sh /usr/bin/checkServicesMC
@@ -23,7 +24,7 @@ fi
 
 
 
-cat /etc/crontab | grep "dailyRestoreMC"
+cat /etc/crontab | grep dailyRestoreMC
 if [ $? -ne '0' ];
 then
 echo "0 8 * * *       root    dailyRestoreMC" >> /etc/crontab
