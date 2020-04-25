@@ -23,7 +23,7 @@ else
 	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}latest/
 	rm ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar
 	cd ${BACKUP_DIR}
-	find ${BACKUP_DIR} -type f -mtime +1 -exec rm -rf {} \;
+	find ${BACKUP_DIR} -mtime +0 -exec rm -rf {} \;
 
 fi
 exit
