@@ -1,10 +1,10 @@
 apt-get install default-jre
 mkdir /opt/minecraftServerJava
+cp checkServicesMCJava.sh /usr/bin/checkServicesMCJava
+cp dailyRestoreMCJava.sh /usr/bin/dailyRestoreMCJava
 cd /opt/minecraftServerJava
 wget "https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar"
 HOSTED_BACKUP="/var/www/html/hosted/"
-cp checkServicesMCJava.sh /usr/bin/checkServicesMCJava
-cp dailyRestoreMCJava.sh /usr/bin/dailyRestoreMCJava
 mkdir /mcWorldData
 cd ../
 ln -s /opt/minecraftServerJava/mcWorldData ${HOSTED_BACKUP}
