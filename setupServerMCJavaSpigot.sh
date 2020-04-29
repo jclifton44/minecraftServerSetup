@@ -16,7 +16,7 @@ ln -s /opt/minecraftServerJavaSpigot/mcWorldData ${HOSTED_BACKUP}
 cat /etc/crontab | grep checkServicesMCJavaSpigot
 if [ $? -ne '0' ];
 then
-echo "*/5 * * * *       root    checkServicesMCJavaSpigot" >> /etc/crontab
+echo "*/8 * * * *       root    checkServicesMCJavaSpigot" >> /etc/crontab
 fi
 
 
