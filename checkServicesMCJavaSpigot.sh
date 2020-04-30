@@ -22,7 +22,6 @@ else
 	mkdir mcWorldData/monthly
 	mkdir worldRestore
 	mkdir ${BACKUP_DIR}recent/${PID_VALUE}
-	rm -rf ${BACKUP_DIR}recent/${PID_VALUE}/*
 	rm -rf ${BACKUP_DIR}latest/*
 	rm -rf worldRestore/*
 	cp -r world/DIM* worldRestore/
