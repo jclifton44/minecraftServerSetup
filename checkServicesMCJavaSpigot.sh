@@ -22,6 +22,7 @@ else
 	mkdir mcWorldData/monthly
 	mkdir worldRestore
 	mkdir ${BACKUP_DIR}recent/${PID_VALUE}
+	mkdir ${BACKUP_DIR}recent/${DATE_EPOCH}
 	rm -rf ${BACKUP_DIR}latest/*
 	rm -rf worldRestore/*
 	cp -r world/DIM* worldRestore/
@@ -29,6 +30,7 @@ else
 	cp -r world/region worldRestore/
 	tar -czvf ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar worldRestore
 	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}recent/${PID_VALUE}/
+	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}recent/${DATE_EPOCH}/
 	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}latest/
 	rm ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar
 	cd ${BACKUP_DIR}recent/
