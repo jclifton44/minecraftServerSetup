@@ -14,6 +14,7 @@ then
 	echo ${DATE_EPOCH} >> uptime
 else 
 	#server running
+	cd /opt/minecraftServerJavaSpigot/
 	echo "RUNNING!"
 	PID_VALUE=$(ps -ax | grep spigot | awk {'print$1'} | head -n 1)
 	mkdir mcWorldData
@@ -21,15 +22,14 @@ else
 	mkdir mcWorldData/latest
 	mkdir mcWorldData/monthly
 	mkdir worldRestore
-	mkdir ${BACKUP_DIR}recent/${PID_VALUE}
 	mkdir ${BACKUP_DIR}recent/${DATE_EPOCH}
 	rm -rf ${BACKUP_DIR}latest/*
 	rm -rf worldRestore/*
-	cp -r world/DIM* worldRestore/
+	cp -r world_nether worldRestore/
+	cp -r world_the_end worldRestore/
 	cp -r world/level.dat worldRestore/
 	cp -r world/region worldRestore/
 	tar -czvf ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar worldRestore
-	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}recent/${PID_VALUE}/
 	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}recent/${DATE_EPOCH}/
 	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}latest/
 	rm ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar
