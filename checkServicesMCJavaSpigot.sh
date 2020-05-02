@@ -13,7 +13,7 @@ then
 	java -Xmx1024M -Xms1024M -jar -XX:+UseConcMarkSweepGC spigot*.jar nogui
 	echo ${DATE_EPOCH} >> uptime
 else 
-	echo "SERVER RUNNING!
+	echo "SERVER RUNNING!"
 
 fi
 
