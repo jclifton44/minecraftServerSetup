@@ -25,10 +25,10 @@ else
 	mkdir ${BACKUP_DIR}recent/${DATE_EPOCH}
 	rm -rf ${BACKUP_DIR}latest/*
 	rm -rf worldRestore/*
-	cp -r world_nether worldRestore/
-	cp -r world_the_end worldRestore/
-	cp -r world/level.dat worldRestore/
-	cp -r world/region worldRestore/
+	cp -r world*_nether worldRestore/
+	cp -r world*_the_end worldRestore/
+	cp -r world*/level.dat worldRestore/
+	cp -r world*/region worldRestore/
 	tar -czvf ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar worldRestore
 	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}recent/${DATE_EPOCH}/
 	cp ${DATE_EPOCH}_${PID_VALUE}MCworlds.tar ${BACKUP_DIR}latest/
